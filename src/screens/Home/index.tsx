@@ -1,8 +1,7 @@
-import { useState } from "react";
-import { Text, View, TextInput, TouchableOpacity, FlatList, Alert } from 'react-native';
 import { styles } from './styles';
-
 import { Participant } from '../../components/Participant';
+import { Text, View, TextInput, TouchableOpacity, FlatList, Alert } from 'react-native';
+import { useState } from "react";
 
 export function Home(){
     const [participants, setParticipants] = useState<string[]>([]);
@@ -13,7 +12,7 @@ export function Home(){
            return Alert.alert("Participante já existe", "Um participante com mesmo nome já está na lista")
         }
 
-        setParticipants(prevState => [...prevState, 'Ana']);
+        setParticipants(prevState => [...prevState, participantName]);
         setParticipantName('');
       }
 
@@ -29,6 +28,7 @@ export function Home(){
             }
         ]);
     }
+
   return (
     <View style={styles.container}>
         <Text style={styles.eventName}>
